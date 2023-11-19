@@ -1,0 +1,1019 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#"
+     xml:base="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1">
+        <rdfs:comment>This ontology captures ethical theory and cotextual information. The abstract ethical concepts when contextualized may help facilitate moral reasoning given an action with some information. Although much information is required when making a judgement on the ethics of an action by ethicists, this is an intiial effort to capture the most relevant information for the same. 
+
+The ontology captures the action, the context, the consequence, and the whether or not the action was intentional. With this information, it also captures which school of thought to refer to, to make a decision. After consulting the ethical school of thought, it is able to provide a rudimentary reasoning as to whether the action was ethical or not.
+
+This general ontology is then modeled to two use cases, driverless cars, and bank loan approval.We can see that both use cases are successfully modeled on this ontology, and can answer the competency questions that have been provided as well.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://contextus.net/ontology/ontomedia/core/expression#involves -->
+
+    <owl:ObjectProperty rdf:about="http://contextus.net/ontology/ontomedia/core/expression#involves">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label>involves</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.semanticweb.org/ns/swc/ontology#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://data.semanticweb.org/ns/swc/ontology#hasLocation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:range rdf:resource="http://schema.org/Place"/>
+        <rdfs:comment>or any sub-event thereof to a location where it takes place. (From swc: https://lov.linkeddata.es/dataset/lov/vocabs/swc)</rdfs:comment>
+        <rdfs:label>has Location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://open.vocab.org/terms/describes -->
+
+    <owl:ObjectProperty rdf:about="http://open.vocab.org/terms/describes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://contextus.net/ontology/ontomedia/core/expression#Context"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicsTheory"/>
+        <rdfs:range rdf:resource="http://schema.org/Event"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Ethics"/>
+        <rdfs:comment>The subject is a document that, to any extent, describes the object. (From OV: https://lov.linkeddata.es/dataset/lov/vocabs/ov)</rdfs:comment>
+        <rdfs:label>describes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/requires -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/requires">
+        <rdfs:comment>From: https://lov.linkeddata.es/dataset/lov/vocabs/dcterms</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_001158 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_001158">
+        <owl:inverseOf rdf:resource="http://semanticscience.org/resource/SIO_001159"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:label>affects</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_001159 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_001159">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PassiveAgent"/>
+        <rdfs:domain rdf:resource="https://w3id.org/airo#Stakeholder"/>
+        <rdfs:range rdf:resource="http://schema.mobivoc.org/Action"/>
+        <rdfs:label>affected by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sensormeasurement.appspot.com/ont/transport/traffic#doesAction -->
+
+    <owl:ObjectProperty rdf:about="http://www.sensormeasurement.appspot.com/ont/transport/traffic#doesAction">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ActiveAgent"/>
+        <rdfs:range rdf:resource="http://schema.mobivoc.org/Action"/>
+        <rdfs:comment>Doing an action.</rdfs:comment>
+        <rdfs:label>does action</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#domain -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
+        <rdfs:comment>A domain of the subject property. (From: https://lov.linkeddata.es/dataset/lov/vocabs/rdfs)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/AIRO#hasConsequence -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/AIRO#hasConsequence">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://schema.mobivoc.org/Action"/>
+        <rdfs:range rdf:resource="https://w3id.org/AIRO#Consequence"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasBeginning -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hasBeginning">
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasEnd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hasEnd">
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://contextus.net/ontology/ontomedia/core/expression#Context -->
+
+    <owl:Class rdf:about="http://contextus.net/ontology/ontomedia/core/expression#Context">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicsTheory"/>
+        <rdfs:comment>This class represents the context in which an event or entity exists. (From OC Ontology: https://lov.linkeddata.es/dataset/lov/vocabs/oc).</rdfs:comment>
+        <rdfs:label>Context</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.mobivoc.org/Action -->
+
+    <owl:Class rdf:about="http://schema.mobivoc.org/Action">
+        <rdfs:comment>Action that is done. (From schema: https://lov.linkeddata.es/dataset/lov/vocabs/mv)</rdfs:comment>
+        <rdfs:label>Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Event -->
+
+    <owl:Class rdf:about="http://schema.org/Event">
+        <rdfs:comment>An event happening at a certain time and location,&gt; property. Repeated events may be structured as separate Event objects. (From schema: https://lov.linkeddata.es/dataset/lov/vocabs/schema)</rdfs:comment>
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Place -->
+
+    <owl:Class rdf:about="http://schema.org/Place">
+        <rdfs:comment>Entities that have a somewhat fixed, physical extension. (From schema: https://schema.org/Place)</rdfs:comment>
+        <rdfs:label>Place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AcademicDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AcademicDomain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ActiveAgent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ActiveAgent">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>An active agent is an agent that does the action in an event.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Animism -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Animism">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalEthics"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Disenchantment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Ethics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Bioregionalism -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Bioregionalism">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#BusinessEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#BusinessEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Casuistry -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Casuistry">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/CaseBasedApproach"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/skgo/modsci#Bioethics"/>
+        <rdfs:comment>In ethics, casuistry is a process of reasoning that seeks to resolve moral problems by extracting or extending abstract rules from a particular case, and reapplying those rules to new instances. This method occurs in applied ethics and jurisprudence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Consequentialism -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Consequentialism">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/ConsequenceBasedApproach"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#NormativeEthics"/>
+        <rdfs:comment>Consequentialism is an ethical theory that judges whether or not something is right by what its consequences are. For instance, most people would agree that lying is wrong. But if telling a lie would help save a person&apos;s life, consequentialism says it&apos;s the right thing to do.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ConsumerCentric -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ConsumerCentric">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#BusinessEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#CorporateDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#CorporateDomain">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/requires"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#BusinessEthics"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#DeepEcology -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#DeepEcology">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Deontology -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Deontology">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#NormativeEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Disenchantment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Disenchantment">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Animism"/>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EntertainmentEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EntertainmentEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalDomain">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/requires"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalEthics"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/AIRO#Domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalEthics">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalDomain"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Ethics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Ethics"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicsOfCare -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicsOfCare">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MedicalDomain"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalDomain"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicsOfJournalism -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicsOfJournalism">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicsTheory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicsTheory">
+        <rdfs:comment>This class compiles various topics from ethics theory that are required to make an ethical decision.</rdfs:comment>
+        <rdfs:label>Ethics Theory</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Feminism -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Feminism">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EnvironmentalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalDomain">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/requires"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalEthics"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/AIRO#Domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalEthics">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalDomain"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalInterpretationEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalInterpretationEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalObligationEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalObligationEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalPunishmentEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalPunishmentEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalRightsEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalRightsEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LegalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LongTermConsequence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#LongTermConsequence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#TemporalConsequence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaDomain">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/requires"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaEthics"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/AIRO#Domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaEthics">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaDomain"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaIntegrity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaIntegrity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MedicalDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MedicalDomain">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/requires"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/skgo/modsci#Bioethics"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/AIRO#Domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MetaEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MetaEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Ethics"/>
+        <rdfs:comment>&quot;Metaethics is a branch of analytic philosophy that explores the status, foundations, and scope of moral values, properties, and words. Whereas the fields of applied ethics and normative theory focus on what is moral, metaethics focuses on what morality itself is.&quot; (Internet Encyclopedia of Philosophy)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#NarrativeEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#NarrativeEthics">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/skgo/modsci#Bioethics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#NormativeEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#NormativeEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Ethics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#OnlineJournalism -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#OnlineJournalism">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Opportunity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Opportunity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PotentialConsequence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PassiveAgent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PassiveAgent">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>A Passive agent is an agent that is involved in an event and is directly affected by the action of the active agent. This agent is different from a stakeholder, who may indirectly incur the opportunities and risks of the action.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalDomain">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/AIRO#Domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalEthics">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalDomain"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalLegitimacy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalLegitimacy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalObligation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalObligation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PoliticalEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PotentialConsequence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PotentialConsequence">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/AIRO#Consequence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Principlism -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Principlism">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/PrincipleBasedApproach"/>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Autonomy"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Beneficence"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Justice"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/NonMaleficence"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/skgo/modsci#Bioethics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalDomain">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/requires"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalEthics"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/AIRO#Domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalEthics">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ProfessionalDomain"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Risk -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#Risk">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#PotentialConsequence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ShareholderCentric -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ShareholderCentric">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#BusinessEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ShortTermConsequence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#ShortTermConsequence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#TemporalConsequence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#SocialMediaEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#SocialMediaEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MediaEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#SocietyCentric -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#SocietyCentric">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#BusinessEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#TemporalConsequence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#TemporalConsequence">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/AIRO#Consequence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#VirtueEthics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#VirtueEthics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#NormativeEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#WorkerCentric -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#WorkerCentric">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#BusinessEthics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Accountability -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Accountability">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Autonomy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Autonomy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/BadMoralIntention -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/BadMoralIntention">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MoralIntention"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Beneficence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Beneficence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/CaseBasedApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/CaseBasedApproach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/EthicalDecisionMakingApproach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/ConsequenceBasedApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/ConsequenceBasedApproach">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/AIRO#Consequence"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/EthicalDecisionMakingApproach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/EthicalDecisionMakingApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/EthicalDecisionMakingApproach">
+        <rdfs:comment>This class describes the ethical decision making approaches that may be used under different circumstances.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Fairness -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Fairness">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/GoodMoralIntention -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/GoodMoralIntention">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MoralIntention"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Honesty -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Honesty">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Justice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Justice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MoralIntentBasedApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MoralIntentBasedApproach">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MoralIntention"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/EthicalDecisionMakingApproach"/>
+        <rdfs:comment>The Theory Of Moral Sentiments or the moral intent approach was a real scientific breakthrough. It shows that our moral ideas and actions are a product of our very nature as social creatures. It argues that this social psychology is a better guide to moral action than is reason.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MoralIntention -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MoralIntention">
+        <rdfs:comment>Moral Intention is defined as the ability to prioritise moral values over other values and hence requires that the desired outcome is bound by moral values. 
+
+(From A. C. Ping, Strategic Ethical Consultancy).
+
+Moral intent is the desire to act ethically when facing a decision and overcome the rationalization to not be ethical “this time.” Even if a person sees the ethical aspects of a decision and has the philosophical tools to make the right choice, he or she still needs to want to do the right thing. If a person has no moral intent, then moral awareness and moral decision making are useless.
+
+(From BEING YOUR BEST SELF, PART 3: MORAL INTENT, Ethics Unwrapped.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MorallyGreyAction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MorallyGreyAction">
+        <rdfs:subClassOf rdf:resource="http://schema.mobivoc.org/Action"/>
+        <rdfs:comment>An action that has some benefits and losses to the extent that it is indiscernible as to which is the better course of action is considered a morally grey action.</rdfs:comment>
+        <rdfs:label>Morally Grey Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MorallyRightAction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MorallyRightAction">
+        <rdfs:subClassOf rdf:resource="http://schema.mobivoc.org/Action"/>
+        <rdfs:comment>An action that is considered to be an ideal or correct course of action in a particular situation or event is a morally right action.</rdfs:comment>
+        <rdfs:label>Morally Right Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MorallyWrongAction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MorallyWrongAction">
+        <rdfs:subClassOf rdf:resource="http://schema.mobivoc.org/Action"/>
+        <rdfs:comment>An action that is considered to be a not ideal or wrong course of action in a particular situation or event is a morally wrong action.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/NoMoralIntention -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/NoMoralIntention">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/MoralIntention"/>
+        <rdfs:comment>No moral intention applies to situations that are circumstatial and fall under the category of moral luck.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/NonMaleficence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/NonMaleficence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/PrincipleBasedApproach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/PrincipleBasedApproach">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/adheresTo"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/EthicalDecisionMakingApproach"/>
+        <rdfs:comment>The term “principlism” designates an approach to biomedical ethics that uses a framework of four universal and basic ethical principles: respect for autonomy, nonmaleficence, beneficence, and justice. It is presented and defended in Beauchamp and Childress&apos; Principles of Biomedical Ethics.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Transparency -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1/Transparency">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#EthicalPrinciple"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
+        <rdfs:comment>An agent (eg. person, group, software or physical artifact). (From foaf: https://lov.linkeddata.es/dataset/lov/vocabs/foaf)</rdfs:comment>
+        <rdfs:label>Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/AIRO#Consequence -->
+
+    <owl:Class rdf:about="https://w3id.org/AIRO#Consequence">
+        <rdfs:comment>The outcome of an action that has occured in an event by an agent. The consequences can be categorized based on temporal factors (short-term, long-term) and also on the basis of utility (risks, opportunities). These together can give a decision maker an understanding of the action and whether it is morally right, wrong, or grey. (Consequence IRI from: https://lov.linkeddata.es/dataset/lov/vocabs/airo)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/AIRO#Domain -->
+
+    <owl:Class rdf:about="https://w3id.org/AIRO#Domain">
+        <rdfs:comment>Represents the sector/domain the AI system is intended to be used in. (From AIRO: https://lov.linkeddata.es/dataset/lov/vocabs/airo)
+
+Here, we use domain in a more general sense for our purposes.</rdfs:comment>
+        <rdfs:label>Domain</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/airo#Stakeholder -->
+
+    <owl:Class rdf:about="https://w3id.org/airo#Stakeholder">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>Represents any individual, group or organization that can affect, be affected by or perceive itself to be affected by a decision or activity [ISO/IEC TR 29110-1:2016(en), 3.59] (From AI Risk Ontology: https://lov.linkeddata.es/dataset/lov/vocabs/airo)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/skgo/modsci#Bioethics -->
+
+    <owl:Class rdf:about="https://w3id.org/skgo/modsci#Bioethics">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#MedicalDomain"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aishaaijaz/ontologies/2023/10/appl-e-v1#AppliedEthics"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
